@@ -35,7 +35,9 @@ namespace Microsoft.Azure.DigitalTwins.Samples.Tests
         [Fact]
         public async Task GetSpacesWithFailedResponseReturnsEmptySpaceList()
         {
-            var httpClient = FakeHttpHandler.CreateHttpClient(_notFoundResponse);
+            (var httpClient, var _) = FakeHttpHandler.CreateHttpClient(
+                postResponses: Enumerable.Repeat(_notFoundResponse, 1000),
+                getResponses: Enumerable.Repeat(_notFoundResponse, 1000));
             Assert.Equal(0, (await Actions.GetSpaces(httpClient, _silentLogger)).Count());
         }
 
@@ -48,7 +50,8 @@ namespace Microsoft.Azure.DigitalTwins.Samples.Tests
                 StatusCode = HttpStatusCode.OK,
                 Content = new StringContent(JsonConvert.SerializeObject(expectedSpaces)),
             };
-            var httpClient = FakeHttpHandler.CreateHttpClient(response);
+            (var httpClient, var _) = FakeHttpHandler.CreateHttpClient(
+                getResponses: new [] { response });
 
             Assert.Equal(
                 expectedSpaces.Select(x => x.Name),

@@ -1,0 +1,8 @@
+- name: Test Building 7
+  spaces:
+  - name: Test Floor 1
+    spaces:
+    - name: Test Area 1
+  devices:
+  - name: Test Device 1
+    hardwareId: 1234
