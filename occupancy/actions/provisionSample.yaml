@@ -1,8 +1,8 @@
-- name: Test Building 7
+- name: Quickstart Building
   spaces:
-  - name: Test Floor 1
+  - name: Quickstart Floor 1
     spaces:
-    - name: Test Area 1
+    - name: Quickstart Area 1
   devices:
-  - name: Test Device 1
-    hardwareId: 1234
+  - name: Quickstart Device 1
+    hardwareId: 1234_Quickstart
