@@ -19,14 +19,14 @@
         hardwareId: 1234567890AB
         sensors:
         - dataType: Motion
-        - dataType: Temperature
+        - dataType: CO2
       matchers:
       - name: Matcher Motion A1
         dataTypeValue: Motion
       userdefinedfunctions:
       - name: Motion Processor
         matcher: Matcher Motion A1
-        script: actions/userDefinedFunctions/placeholder.js
+        script: actions/userDefinedFunctions/availability.js
       roleassignments:
       - roleId: 98e44ad7-28d4-4007-853b-b9968ad132d1 # System Role: SpaceAdministrator
         objectName: Motion Processor
